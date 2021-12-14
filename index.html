@@ -1,66 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="./css/style.css">
-<title>Blank的第一个网页</title>
-
+    <meta charset="utf-8"/>
+    <title>blank的第二个网页</title>
+    <link rel="stylesheet" href="css/style.css">
+    
 </head>
 <body>
-    <div class="container">
+    <tag class="tag">
+        
+        <p>留言板</p>
+    </tag>
+    <div class="box">
 
         <div class="box1">
-            <!--为了做个好看的头而已-->
-
-            <h1>中国植树节</h1>
-        
-            <img src="./src/logo.png" height="150px" width="150px"/>
-           
+            <img src="image/ly.png">
+            <textarea placeholder="留个言吧：" autofocus="autofocus"></textarea>
         </div>
-        <nav class="nav">
-            <ul class="item">
-                <li><a href="index.html">首页</a></li>
-                <li><a href="list.html">目录</a></li>
-                <li><a href="about.html">关于我们</a></li>
-                <li><a href="contact.html">联系我们</a></li>
-            </ul>
-        </nav>
-        <div class="box3">
-            <div class="f"><h3>植树节</h3></div>
-            <div class="s"><h3>目录</h3></div>
-            <div class="t"><h3>做什么</h3></div>
 
-        </div>
         <div class="box2">
-                <div class="menu1">
-                    <img src="src/menu.png" height="230px" width="160px"/>
-                    <p>植树节是按照法律规定宣传保护树木，并组织动员群众积极参加以植树造林为活动内容的节日。按时间长短可分为植树日、植树周和植树月，共称为国际植树节。提倡通过这种活动，激发人们爱林造林的热情、意识到环保的重要性。</p>
-                    <p>中国的植树节由凌道扬和韩安、裴义理等林学家于1915年倡议设立，最初将时间确定在每年清明节。1928年，国民政府为纪念孙中山逝世三周年将植树节改为3月12日。新中国成立后的1979年，在邓小平提议下，第五届全国人大常委会第六次会议决定将每年的3月12日定为植树节。</p>
-                </div>
-                
-                <div class="menu2">
-                    <ul class="list">
-                        <li><a href="#header">活动影响</a></li>
-                        <li><a href="#header">创始人</a></li>
-                        <li><a href="#header">历年主题</a></li>
-                        <li><a href="#header">历年国内活动</a></li>
-                    </ul>
-                </div>
-                <div class="menu3">
-                    <ul class="list2">
-                        <li><a href="#mainRight">倡导低碳生活</a></li>
-                        <li><a href="#mainRight">从身边的小事做起</a></li>
-                        <li><a href="#mainRight">从节约资源做起</a></li>
-                        <li><a href="#mainRight">科学发展</a></li>
-                        <li><a href="#mainRight">公众参与</a></li>
-                        <li><a href="#mainRight">防治有毒化学品污染</a></li>
-                    </ul>
-                </div>
+            <button class="button"><span>留言</span></button>
         </div>
-        <footer class="footer">
-            <p>&copy;2021,中国植树节</p>
-        </footer>
+
     </div>
-    
+    <div class="box3">
+        <ul class="">
+
+        </ul>
+    </div>
+    <script>
+        var text = document.querySelector('textarea')
+        var btn = document.querySelector('button')
+        var ul = document.querySelector('ul')
+        
+        btn.onclick = function(){
+            var li = document.createElement('li')
+            var span = document.crea
+            if(text.value === '')
+            {
+                alert('不输入你留什么言？')
+            }else{
+                li.innerHTML = text.value + '<a href="javascript:;">X</a>'
+                ul.insertBefore(li,ul.children[0])
+                text.value=''
+
+                var removebtn = document.querySelectorAll('a')
+                for(var i=0;i<removebtn.length;i++){
+                    removebtn[i].onclick = function(){
+                        ul.removeChild(this.parentNode)
+                    }
+                }
+            }
+        }
+
+        
+    </script>
 </body>
 </html>
